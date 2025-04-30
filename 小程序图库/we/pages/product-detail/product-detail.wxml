@@ -1,0 +1,40 @@
+<!-- product-detail.wxml -->
+<view class="container">
+  <!-- 图片展示区域，点击切换弹出框显示状态 -->
+  <view class="image-container" bindtap="toggleActionSheet">
+    <image class="product-image" src="{{ thumb }}" mode="aspectFill"></image>
+  </view>
+  
+  <!-- 使用普通弹出层 -->
+  <view class="custom-popup {{ show ? 'show' : '' }},overlay='FALSE'">
+    <view class="popup-mask" bindtap="onClose"></view>
+    <view class="popup-container">
+      <view class="popup-header">
+        <text class="popup-title">{{ title }}</text>
+        <view class="popup-close" bindtap="onClose">×</view>
+      </view>
+      <view class="popup-content">
+        <!-- 产品信息区域 -->
+        <view class="info-container">
+          <view class="product-desc">{{ desc }}</view>
+          <view class="product-total">总库存: {{ totalQty }}</view>
+        </view>
+
+        <!-- 库存表格 -->
+        <view class="inventory-table">
+          <view class="table-header">
+            <view class="table-cell">规格</view>
+            <view class="table-cell">数量</view>
+          </view>
+          <!-- 循环渲染不同尺寸的库存 -->
+          <block wx:for="{{ sizeList }}" wx:key="size">
+            <view class="table-row">
+              <view class="table-cell">{{ item.size }}</view>
+              <view class="table-cell">{{ item.qty }}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

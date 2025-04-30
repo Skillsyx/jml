@@ -1,0 +1,27 @@
+<view class="page">
+  <!-- 固定在顶部的搜索框 -->
+  <view class="search-container">
+    <van-search placeholder="请输入关键字搜索" show-action bind:search="onSearch" bind:cancel="onCancel" action-text="取消" />
+  </view>
+
+  <!-- 内容区域，带有上边距以避免被搜索框遮挡 -->
+  <view class="content-container">
+    <view class="sidebar-content">
+      <!-- 侧边导航栏 -->
+      <view class="sidebar">
+        <van-sidebar active-key="{{ activeKey }}" bind:change="onSidebarChange">
+          <block wx:for="{{ designTypes }}" wx:key="*this">
+            <van-sidebar-item title="{{ item }}" />
+          </block>
+        </van-sidebar>
+      </view>
+
+      <!-- 产品列表 -->
+      <view class="product-list">
+        <block wx:for="{{ filteredCardList }}" wx:key="patternCode">
+          <van-card desc="{{ item.patternCode + ' ' + item.patternName }}" title="{{ item.designType }}" thumb="{{ item.imageUrl }}" style="margin-bottom: 16px;" bindtap="onCardClick" data-pattern-code="{{ item.patternCode }}" data-pattern-name="{{ item.patternName }}" data-design-type="{{ item.designType }}" data-image-url="{{ item.imageUrl }}" />
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

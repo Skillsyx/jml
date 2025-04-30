@@ -1,0 +1,161 @@
+/* product-detail.wxss */
+.container {
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+}
+
+.image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000;
+}
+
+/* 自定义弹出层样式 */
+.custom-popup {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 99;
+  visibility: hidden;
+  transition: visibility 0.3s;
+}
+
+.custom-popup.show {
+  visibility: visible;
+}
+
+/* .popup-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.3s;
+} */
+
+.popup-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent; /* 完全透明 */
+}
+
+.custom-popup.show .popup-mask {
+  opacity: 1;
+}
+
+.popup-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  border-radius: 16px 16px 0 0;
+  transform: translateY(100%);
+  transition: transform 0.3s;
+}
+
+.custom-popup.show .popup-container {
+  transform: translateY(0);
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.popup-title {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.popup-close {
+  font-size: 24px;
+  color: #999;
+  padding: 0 8px;
+}
+
+.popup-content {
+  padding: 16px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.info-container {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.product-desc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.product-total {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #ff6b81;
+  font-weight: bold;
+}
+
+/* 库存表格样式 */
+.inventory-table {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.table-header {
+  display: flex;
+  background-color: #f7f7f7;
+  font-weight: bold;
+  width: 100%;
+}
+
+.table-row {
+  display: flex;
+  border-top: 1px solid #eee;
+  width: 100%;
+}
+
+.table-cell {
+  flex: 1;
+  padding: 12px 10px;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.table-header .table-cell {
+  color: #333;
+}
+
+.table-row .table-cell {
+  color: #666;
+}

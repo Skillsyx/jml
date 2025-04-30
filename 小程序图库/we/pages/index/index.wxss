@@ -1,0 +1,51 @@
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #fff;
+}
+
+.content-container {
+  margin-top: 54px; /* 调整这个值，使其等于或略大于搜索框的高度 */
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.sidebar-content {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.sidebar {
+  flex-shrink: 0;
+  height: 100%;
+  width: 80px; /* 明确设置侧边栏宽度 */
+  min-width: 80px; /* 确保最小宽度 */
+  background-color: #f7f8fa; /* 添加背景色以便于识别 */
+}
+
+.product-list {
+  flex: 1;
+  padding: 0 16px;
+  overflow-y: auto;
+}
+
+/* 增强 van-sidebar 的可见性 */
+.van-sidebar {
+  width: 100% !important;
+}
+
+.van-sidebar-item {
+  padding: 10px 12px !important;
+  font-size: 13px !important;
+}
